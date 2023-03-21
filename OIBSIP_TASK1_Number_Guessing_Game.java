@@ -52,7 +52,7 @@ public class OIBSIP_TASK1_Number_Guessing_Game extends WindowAdapter{
 				else if ((user>comp)&& count<5) {
 					t2.setText("Number is greater then computer number");
 				}
-				else (count>=5) {
+				else {
 					String result=String.valueOf(comp);
 					t2.setText("You have completed your 5 try. Try in next round.\nCorrect number is:"+result);
 				}

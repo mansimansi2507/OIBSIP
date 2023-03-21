@@ -4,8 +4,10 @@ import java.awt.event.*;
 import java.util.*;
 public class OIBSIP_TASK1_Number_Guessing_Game extends WindowAdapter{
 	Frame f;
+	int max=100;
+	int min=1;
 	Random random=new Random();
-	int comp =random.nextInt(1, 100);
+	int comp =random.nextInt((max - min) + 1) + min;
 	int count=0;
 	int best_score=0;
 	public OIBSIP_TASK1_Number_Guessing_Game() {
@@ -37,7 +39,10 @@ public class OIBSIP_TASK1_Number_Guessing_Game extends WindowAdapter{
 			public void actionPerformed(ActionEvent e){
 				int user = java.lang.Integer.parseInt(t1.getText());
 				count++;
-				if((user==comp)&& count<=5) {
+				if(user<1 || user>100) {
+					t2.setText("Invalid number");
+				}
+				else if((user==comp)&& count<=5) {
 					t2.setText("Correct Guess. Click on next round");
 					best_score++;
 				}
@@ -47,12 +52,9 @@ public class OIBSIP_TASK1_Number_Guessing_Game extends WindowAdapter{
 				else if ((user>comp)&& count<5) {
 					t2.setText("Number is greater then computer number");
 				}
-				else if(count>=5) {
+				else (count>=5) {
 					String result=String.valueOf(comp);
 					t2.setText("You have completed your 5 try. Try in next round.\nCorrect number is:"+result);
-				}
-				else {
-					t2.setText("Invalid number");
 				}
 				
 			}
@@ -65,7 +67,7 @@ public class OIBSIP_TASK1_Number_Guessing_Game extends WindowAdapter{
 				count=0;
 				t1.setText("");
 				t2.setText("");
-				comp =random.nextInt(1, 100);
+				comp =random.nextInt((max - min) + 1) + min;
 			}
 		});
 		b3 = new Button("Best Score");

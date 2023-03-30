@@ -1,3 +1,4 @@
+// first import dump file(given as another file in this repository) in my sql workbench and then run this project on eclipse and change username and password in this code with your mysql username and password
 package java1;
 import java.awt.*;
 import javax.swing.*;
